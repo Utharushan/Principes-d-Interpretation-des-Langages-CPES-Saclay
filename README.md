@@ -44,5 +44,3 @@ Ce dépôt GitHub regroupe l'ensemble des TP réalisés dans le cadre du cours d
 
 - **Exécution :**  
   Une fois compilés, les exécutables ou fichiers de classes (.class) pourront être testés selon les consignes du TP. Pour les exercices Jflex, vous pouvez utiliser les fichiers `.jflex` et les tester à l’aide des fichiers de test fournis (ex. `test.txt`, `lexical-test.txt`).
-
----

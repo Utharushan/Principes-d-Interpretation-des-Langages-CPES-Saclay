@@ -41,6 +41,9 @@ Ce dépôt GitHub regroupe l'ensemble des TP réalisés dans le cadre du cours d
 - **TP-note-23-24/**  
   Archives et squelettes relatifs au TP noté de l’année 23-24 (fichiers Jflex, Makefile, tests, mail, etc.).
 
+- **TP3-src.zip/**  
+  Archives et squelettes relatifs au TP 3 sur le développement de la calculatrice.
+
 ---
 
 ## Utilisation

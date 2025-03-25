@@ -1,0 +1,9 @@
+(20*((50+30)*40))*2 // réponse : 128000
+1+1 // réponse : 2
+45*3 // réponse : 135
+10*(1+1)*2+(1+1)*5 // réponse : 50
+10/2 // réponse : 5
+10/2+3 // réponse : 8
+10/(2+3) // réponse : 2
+		// ligne non prise en compte
+12+3 // réponse : 15

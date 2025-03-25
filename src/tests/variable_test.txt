@@ -1,0 +1,8 @@
+3+2*5 // réponse : 13
+A // réponse : 0
+A=10*(1+1)*2+(1+1)*5 // réponse : A=50
+A // réponse : 50 
+A+2 // réponse : 52
+(4*A)/((A*2)-50) // réponse : 4
+A=A*2 // réponse : A=100
+A // réponse : 100

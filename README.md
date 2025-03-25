@@ -19,6 +19,12 @@ Ce dépôt GitHub regroupe l'ensemble des TP réalisés dans le cadre du cours d
     - Exercice 1 : TP noté 22-23  
     - Exercice 2 : TP noté 23-24
 
+### TP3 – Calculatrice
+- **Description :**  
+  Ce TP propose de développer une calculatrice simple en utilisant les concepts d'analyse lexicale et syntaxique. Le sujet est fourni sous forme de dossier avec les fichiers nécessaires.
+- **Fichiers inclus :**
+  - Dossier **src** contenant les fichiers sources et squelettes pour le développement de la calculatrice.
+
 ### Répertoires supplémentaires
 - **UnitesLexicales/**  
   Contient les fichiers sources et compilés (Java, Jflex, Makefile) pour l’exercice sur les unités lexicales.

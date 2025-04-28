@@ -1,0 +1,15 @@
+Vrai et Faux ou Vrai
+Vrai et (Faux ou Vrai)
+A=Vrai
+B= non Vrai ou Vrai
+T= B==Vrai
+B= non Faux et Vrai
+T= B==Vrai
+B= (non A == B) == (non A) == B
+T= B==Vrai
+C= (A==B)?Faux:B
+T= C==Faux
+C= (A==Faux)?Faux:B
+T= C==Vrai
+C= ((A==B)?Faux:B)?Faux:(A==B)?A et B:A ou B 
+T= C==Vrai

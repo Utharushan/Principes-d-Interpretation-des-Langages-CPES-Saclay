@@ -9,11 +9,10 @@ int nbLine=0;
 %eof{
 System.out.println("lines="+ nbLine + " words=" + nbWord + " chars=" + nbChar);
 %eof}
-mot= [a-z]* /* remplacer par une expression régulière qui reconnait un mot comme
-               une suite de caractères quelconque qui ne sont pas
-               des espaces (blanc, tabulation \t ou retour à la ligne \n */
+mot= [^\s]+ /* Une expression régulière qui reconnait un mot comme une suite de caractères
+               qui ne sont pas des espaces (blanc, tabulation \t ou retour à la ligne \n) */
 %%
-{mot}  {  nbWord+=1; /* A compléter */ }
-\n     {  nbLine+=1; /* A compléter */ }
-.      {  nbChar+=1; /* A compléter */ }
+{mot}  {  nbWord+=1; nbChar+=yytext().length(); /* Incrémente le nombre de mots et ajoute la longueur du mot au compteur de caractères */ }
+\n     {  nbLine+=1; nbChar+=1; /* Incrémente le nombre de lignes et ajoute 1 au compteur de caractères pour le retour à la ligne */ }
+.      {  nbChar+=1; /* Incrémente le compteur de caractères pour tout autre caractère */ }
 

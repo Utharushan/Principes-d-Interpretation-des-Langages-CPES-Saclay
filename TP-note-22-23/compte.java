@@ -457,7 +457,7 @@ int nbLine=0;
   private void zzDoEOF() {
     if (!zzEOFDone) {
       zzEOFDone = true;
-    System.out.println("lines="+ nbLine + " words=" + nbmot + " chars=" + nbChar);
+    System.out.println("lines=" + nbLine + " words=" + nbmot + " chars=" + nbChar);
 
     }
   }
@@ -556,7 +556,7 @@ int nbLine=0;
       else {
         switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
           case 1: 
-            { nbmot++; nbChar+=yylength();
+            { nbmot++; nbChar += yylength();
             } 
             // fall through
           case 5: break;
@@ -571,7 +571,9 @@ int nbLine=0;
             // fall through
           case 7: break;
           case 4: 
-            { /* A compléter */
+            { // Ignore les commentaires de type "//" en comptant les caractères et la ligne
+    nbChar += yylength(); 
+    nbLine++;
             } 
             // fall through
           case 8: break;

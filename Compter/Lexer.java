@@ -30,8 +30,9 @@ class Lexer {
    * Translates characters to character classes
    */
   private static final String ZZ_CMAP_PACKED = 
-    "\12\0\1\2\1\3\1\3\1\3\123\0\32\1\12\0\1\3\u1fa2\0"+
-    "\1\3\1\3\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
+    "\11\0\1\1\1\2\1\3\1\3\1\3\22\0\1\1\144\0\1\3"+
+    "\32\0\1\1\u15df\0\1\1\u097f\0\13\1\35\0\1\3\1\3\5\0"+
+    "\1\1\57\0\1\1\u0fa0\0\1\1\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\ud00f\0";
 
   /** 
    * Translates characters to character classes
@@ -44,7 +45,7 @@ class Lexer {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\1\1\2\1\1\1\3\1\4";
+    "\1\0\1\1\1\2\1\3\1\4";
 
   private static int [] zzUnpackAction() {
     int [] result = new int[5];
@@ -72,7 +73,7 @@ class Lexer {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\4\0\10\0\4\0\4";
+    "\0\0\0\4\0\10\0\10\0\10";
 
   private static int [] zzUnpackRowMap() {
     int [] result = new int[5];
@@ -98,7 +99,7 @@ class Lexer {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\2\1\3\1\4\1\5\5\0\1\3\2\0";
+    "\1\2\1\3\1\4\1\5\1\2\7\0";
 
   private static int [] zzUnpackTrans() {
     int [] result = new int[12];
@@ -139,7 +140,7 @@ class Lexer {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\1\1\11\1\1\2\11";
+    "\1\0\1\1\3\11";
 
   private static int [] zzUnpackAttribute() {
     int [] result = new int[5];
@@ -243,7 +244,7 @@ int nbLine=0;
     char [] map = new char[0x110000];
     int i = 0;  /* index in packed string  */
     int j = 0;  /* index in unpacked array */
-    while (i < 58) {
+    while (i < 84) {
       int  count = packed.charAt(i++);
       char value = packed.charAt(i++);
       do map[j++] = value; while (--count > 0);
@@ -552,17 +553,17 @@ int nbLine=0;
       else {
         switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
           case 1: 
-            { nbWord+=1; /* A compléter */
+            { nbWord+=1; nbChar+=yytext().length(); /* Incrémente le nombre de mots et ajoute la longueur du mot au compteur de caractères */
             } 
             // fall through
           case 5: break;
           case 2: 
-            { nbChar+=1; /* A compléter */
+            { nbChar+=1; /* Incrémente le compteur de caractères pour tout autre caractère */
             } 
             // fall through
           case 6: break;
           case 3: 
-            { nbLine+=1; /* A compléter */
+            { nbLine+=1; nbChar+=1; /* Incrémente le nombre de lignes et ajoute 1 au compteur de caractères pour le retour à la ligne */
             } 
             // fall through
           case 7: break;

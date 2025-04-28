@@ -1,0 +1,79 @@
+/* NOM :
+   Prénom :
+   Groupe :
+*/
+import java_cup.runtime.*;
+import java.io.*;  
+import java.util.*;
+
+parser code {:
+   public static boolean[] tvar = new boolean[26] ;
+   :}
+
+terminal OU, ET, NON, LP, RP, EQ, SET, NL, PI, DP ;
+terminal Integer VA ;
+terminal Boolean BOOL ;
+nonterminal Boolean expr, terme, facteur, cond, equa, simpl ;
+nonterminal lignes, ligne ;
+
+
+start with lignes;
+
+lignes ::=
+       ligne   			
+     | lignes  ligne		
+;
+
+ligne ::=
+       cond:e NL		{: System.out.println(e) ;  :}
+     | VA:k SET cond:e NL	{: tvar[k] = e;
+                                   System.out.println(((char)('A'+ k)) + "=" + e.toString()) ;  :}
+     | NL    			
+;
+
+cond ::=
+       LP cond:b RP PI cond:e1 DP cond:e2
+                                {: RESULT = (b)?e1:e2 ; :}
+     | expr:e      		{: RESULT = e; :}
+;
+expr ::=
+       expr:e1 OU terme:e2  	{: RESULT = e1 || e2; :}
+     | terme:e      		{: RESULT = e; :}
+;
+terme ::=
+       terme:e1 ET facteur:e2   {: RESULT = e1 && e2; :}
+     | facteur:e    		{: RESULT = e; :}
+;
+facteur ::=
+       NON facteur:e  		{: RESULT = !e; :}
+     | equa:e                   {: RESULT = e; :}
+;
+equa ::=
+       equa:e1 EQ simpl:e2      {: RESULT = e1 == e2; :}
+     | simpl:e                  {: RESULT = e; :}
+;
+simpl ::=
+       BOOL:b			{: RESULT = b; :}
+     | VA:k			{: RESULT = tvar[k]; :} 
+     | LP cond:e RP  		{: RESULT = e; :}
+;
+
+/* Indiquer ici les réponses aux questions de l'exercice II
+
+question 1 (CORRECTION) :
+
+l'expression A et C == B ou C se parenthèse en (A et (C == B)) ou C
+l'expression A == C == B se parenthèse en (A == C) == B
+
+l'opérateur == a une priorité plus forte que les opérateurs et/ou
+l'opérateur == associe à gauche
+
+
+question 4-c (CORRECTION) concernant les espaces entre ) et ? dans les conditionnelles :
+
+Les caractères ) et ? correspondent à deux unités lexicales différentes et donc deux terminaux dans la grammaire. Ils doivent apparaître de manière consécutive dans la grammaire mais peuvent être séparés par des espaces qui seront lus à l'analyse lexicale mais ignorés (pas d'unité lexicale produite).
+
+Pour empécher les espaces entre le ) et le ?, il faut au niveau de l'analyse lexicale reconnaître la suite de deux caractères consécutifs )? comme une seule unité lexicale RPI et changer la règle de grammaire de la conditionnelle qui devient   LP cond:b RPI cond:e1 DP cond:e2
+
+*/
+
